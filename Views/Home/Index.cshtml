@@ -1,0 +1,20 @@
+﻿<div class="text-center">
+    <h1>Welcome to Dragodachi</h1>
+    <h2>Care for your dragon, or else...</h2><br>
+    <div class="stats">
+    	<h3>Fullness: @ViewBag.fullness | Happiness: @ViewBag.happiness | Meals: @ViewBag.meals | Energy: @ViewBag.energy</h3>
+    </div><br>
+    <div class="interact">
+    	<img class="dragImg" src="@Url.Content(ViewBag.image)" alt="Dragon"><br>
+    	<p style="color: white; text-shadow: 2px 2px black; margin-bottom: 15px; font-size: 15px;">@ViewBag.message</p>
+		@{
+			if(@ViewBag.fullness < 1 || @ViewBag.happiness < 1){
+	    	<a href="/reset" class="control btn btn-danger" style="color:white;">Reset</a>
+			} else if(@ViewBag.fullness > 99 && @ViewBag.happiness > 99 && @ViewBag.energy > 99){
+				<a href="/reset" class="control btn btn-primary" style="color:white;">Reset</a>
+			} else {
+				<a href="/feed" class="control btn" style="color: white;">Feed</a> <a href="/play" class="control btn" style="color: white;">Play</a> <a href="/work" class="control btn" style="color: white;">Work</a> <a href="/sleep" class=" control btn" style="color: white;">Sleep</a>
+			}
+		}
+    </div>
+</div>
